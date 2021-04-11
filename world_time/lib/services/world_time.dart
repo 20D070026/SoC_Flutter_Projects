@@ -1,6 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:async';
+import 'package:intl/intl.dart';
 
 class WorldTime{
 
@@ -8,6 +9,7 @@ class WorldTime{
   String time; //the time in the location
   String flag; //url to an assets flag icon
   String url; //location url for api endpoint
+  bool isDaytime; //true or false if daytime or not
 
   WorldTime({this.location, this.flag, this.url});
 
@@ -29,7 +31,8 @@ class WorldTime{
     now = now.add(Duration(hours: int.parse(offset)));
 
     //set the time property
-    time = now.toString();
+    isDaytime = now.hour > 6 && now.hour <18 ? true : false;
+    time = DateFormat.jm().format(now);
   }
 
 
