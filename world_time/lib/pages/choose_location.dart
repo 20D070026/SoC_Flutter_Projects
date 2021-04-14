@@ -9,30 +9,19 @@ class ChooseLocation extends StatefulWidget {
 
 class _ChooseLocationState extends State<ChooseLocation> {
 
-  void getData() async {
-    //simulate network request for a username
-    String username = await Future.delayed(Duration(seconds: 3), () {
-      return 'mihika';
-    });
 
 
-  //simulate network request for occupation of username
-   String occ = await Future.delayed(Duration(seconds: 2), () {
-  return 'student';
-  });
-   print('$username - $occ');
-}
 
-  @override
-  void initState() {
-    super.initState();
-    print('initstate funcn ran');
-    getData();
-  }
 
   List<WorldTime> locations = [
     WorldTime(url: 'Europe/London', location: 'London', flag: 'uk1.png'),
-    WorldTime(url: 'Europe/Berlin', location: 'Berlin', flag: 'germany1.png')
+    WorldTime(url: 'Europe/Berlin', location: 'Berlin', flag: 'germany1.png'),
+    WorldTime(url: 'Asia/Kolkata', location: 'Kolkata', flag: 'india1.png'),
+    WorldTime(url: 'Asia/Tokyo', location: 'Tokyo', flag: 'japan1.png'),
+    WorldTime(url: 'America/New_York', location: 'NewYork', flag: 'usa1.png'),
+    WorldTime(url: 'America/Argentina/Buenos_Aires', location: 'BuenosAires', flag: 'argentina1.png'),
+    WorldTime(url: 'Australia/Sydney', location: 'Sydney', flag: 'australia1.png'),
+    WorldTime(url: 'Africa/Cairo', location: 'Cairo', flag: 'egypt1.png'),
   ];
 
   void updateTime(index) async {
@@ -46,9 +35,18 @@ class _ChooseLocationState extends State<ChooseLocation> {
       'isDaytime': instance.isDaytime,
     });
   }
+
+
+  @override
+  void initState() {
+    super.initState();
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
-    print('build funcn ran');
+
     return Scaffold(
       backgroundColor: Colors.cyan[50],
       appBar: AppBar(
@@ -65,7 +63,7 @@ class _ChooseLocationState extends State<ChooseLocation> {
             child: Card(
               child: ListTile(
                 onTap: () {
-                  print(locations[index].location);
+                  updateTime(index);
                 },
                 title: Text(locations[index].location),
                 leading: CircleAvatar(
