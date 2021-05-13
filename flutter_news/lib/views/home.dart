@@ -2,7 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_news/helper/data.dart';
+import 'package:flutter_news/helper/news.dart';
 import 'package:flutter_news/main.dart';
+import 'package:flutter_news/models/article_model.dart';
+import 'package:flutter_news/models/category_model.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -11,12 +14,23 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
+  List<CategoryModel> getCategory = [];
+  List<ArticleModel> articles = [];
+  bool _loading = true;
+
 
   @override
   void initState() {
     super.initState();
+  }
 
-
+  getNews() async {
+    News newsClass = News();
+    await newsClass.getNews();
+    articles = newsClass.news;
+    setState(() {
+      _loading = false;
+    });
   }
   @override
   Widget build(BuildContext context) {
@@ -27,7 +41,12 @@ class _HomeState extends State<Home> {
         elevation: 0.0,
 
       ),
-      body: Container(
+      body: _loading ? Center(
+        child: Container(
+          child: CircularProgressIndicator(),
+        ),
+      ) : Container(
+
         child: Column(
           children: <Widget>[
             Container(
@@ -41,15 +60,22 @@ class _HomeState extends State<Home> {
                   return CategoryTile(
                     imageUrl: getCategory[index].imageUrl,
                     categoryName: getCategory[index].categoryName,
-
-
-
-                    );
-
-
-
-
+                  );
                   },
+              ),
+            ),
+
+            Container(
+              child: ListView.builder(
+                itemCount: articles.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index){
+                  return BlogTile(
+                    title: articles[index].title,
+                    imageUrl: articles[index].urlToImage,
+                    desc: articles[index].description
+                  );
+                },
               ),
             )
           ],
@@ -103,8 +129,7 @@ class CategoryTile extends StatelessWidget {
 class BlogTile extends StatelessWidget {
   final String imageUrl, title, desc;
 
-  BlogTile({@required this.imageUrl, @required this.title, @required this.desc})
-  {}
+  BlogTile({@required this.imageUrl, @required this.title, @required this.desc});
   @override
   Widget build(BuildContext context) {
     return Container(
