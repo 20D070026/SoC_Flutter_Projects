@@ -1,41 +1,41 @@
 import 'dart:convert';
-import 'dart:html';
+import 'dart:async';
 import 'package:flutter_news/models/article_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:newsapi/newsapi.dart';
 class News{
-  List<ArticleModel> news = [];
+  List<ArticleModel> articles = [];
 
-  Future<void>getNews() async {
+  Future<void> getNews() async {
+    var newsApi = NewsApi(
+      //  dioOptions: dioOptions,
+      //  interceptors: interceptors,
+      debugLog: true,
+      apiKey: 'foo',
+    );
 
+    newsApi.apiKey = 'adf6ce258ced48bbb000ad80d8fea116';
 
-   String url = "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=API_KEY";
+    var topHeadlines = await newsApi.topHeadlines(
+//    country: country,
+//    category: category,
+//    sources: sources,
+//    q: q,
+      language: 'en',
+//    pageSize: pageSize,
+//    page: page,
+    );
 
-
-   http.Response response = await http.get(Uri.https("newsapi.org","/v2/top-headlines?country=in&category=business&apiKey=API_KEY"));
-
-    var jsonData = jsonDecode(response.body);
-
-    if (jsonData['status'] == "ok"){
-      jsonData["articles"].forEach((element) {
-        if (element["urlToImage"] =! null ) {
-           ArticleModel articleModel = ArticleModel(
-              author: element["author"],
-              title: element["title"],
-              description: element["description"],
-              url: element["url"],
-              urlToImage: element["urlToImage"],
-              content: element["content"]
-          );
-
-           news.add(articleModel);
-        }
-      }
-      );
-
-      }
-    }
-
-
-
+    // ArticleResponse
+    print(topHeadlines.articles[0].description);
 
   }
+      }
+
+
+
+
+
+
+
+

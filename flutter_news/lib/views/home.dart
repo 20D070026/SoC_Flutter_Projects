@@ -19,19 +19,22 @@ class _HomeState extends State<Home> {
   bool _loading = true;
 
 
+  Future<void> getNews() async {
+    News newsClass = News();
+    await newsClass.getNews();
+    articles = newsClass.articles;
+    setState(() {
+      _loading = false;
+    });
+  }
+
+
   @override
   void initState() {
     super.initState();
   }
 
-  getNews() async {
-    News newsClass = News();
-    await newsClass.getNews();
-    articles = newsClass.news;
-    setState(() {
-      _loading = false;
-    });
-  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
