@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_news/helper/data.dart';
 import 'package:flutter_news/helper/news.dart';
 import 'package:flutter_news/main.dart';
-import 'package:flutter_news/models/article_model.dart';
+
 import 'package:flutter_news/models/category_model.dart';
+import 'package:newsapi/newsapi.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,9 +14,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
-  List<CategoryModel> getCategory = [];
-  List<ArticleModel> articles = [];
+ List<Article> articles = [];
+  List<CategoryModel> categories = List<CategoryModel>();
+  
   bool _loading = true;
 
 
@@ -26,11 +27,16 @@ class _HomeState extends State<Home> {
     setState(() {
       _loading = false;
     });
+   
   }
 
 
   @override
   void initState() {
+    categories = getCategory();
+  
+    getNews();
+    
     super.initState();
   }
 
@@ -48,21 +54,24 @@ class _HomeState extends State<Home> {
         child: Container(
           child: CircularProgressIndicator(),
         ),
-      ) : Container(
+      ) : SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+
 
         child: Column(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 16),
+              
               height: 70,
               child: ListView.builder(
-                itemCount: getCategory.length,
+                itemCount: categories.length,
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index){
                   return CategoryTile(
-                    imageUrl: getCategory[index].imageUrl,
-                    categoryName: getCategory[index].categoryName,
+                    imageUrl: categories[index].imageUrl,
+                    categoryName: categories[index].categoryName,
                   );
                   },
               ),
@@ -72,6 +81,7 @@ class _HomeState extends State<Home> {
               child: ListView.builder(
                 itemCount: articles.length,
                 shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
                 itemBuilder: (context, index){
                   return BlogTile(
                     title: articles[index].title,
@@ -83,6 +93,7 @@ class _HomeState extends State<Home> {
             )
           ],
         ),
+      ),
       ),
     );
   }
@@ -136,11 +147,25 @@ class BlogTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(top: 20),
       child: Column(
         children: <Widget>[
-          Image.network(imageUrl),
-          Text(title),
-          Text(desc),
+           ClipRRect(
+                borderRadius: BorderRadius.circular(5),
+                child: Image.network(imageUrl)),
+          
+          Text(title, style: TextStyle(
+            fontSize:20,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          )
+          ),
+          Text(desc, style: TextStyle(
+            fontSize: 14,
+            color: Colors.black54,
+            fontWeight: FontWeight.normal,
+          ),
+          ),
         ],
 
       ),

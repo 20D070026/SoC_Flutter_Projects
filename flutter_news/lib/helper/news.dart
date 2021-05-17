@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:async';
-import 'package:flutter_news/models/article_model.dart';
+
 import 'package:http/http.dart' as http;
 import 'package:newsapi/newsapi.dart';
 class News{
-  List<ArticleModel> articles = [];
+  List<Article> articles = [];
 
   Future<void> getNews() async {
     var newsApi = NewsApi(
@@ -27,6 +27,7 @@ class News{
     );
 
     // ArticleResponse
+    articles = topHeadlines.articles;
     print(topHeadlines.articles[0].description);
 
   }

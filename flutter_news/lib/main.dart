@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news/main.dart';
-
+import 'package:newsapi/newsapi.dart';
 import 'views/home.dart';
+
 
 
 void main() {
