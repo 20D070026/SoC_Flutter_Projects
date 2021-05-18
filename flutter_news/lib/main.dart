@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_news/main.dart';
 import 'package:newsapi/newsapi.dart';
 import 'views/home.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 
 

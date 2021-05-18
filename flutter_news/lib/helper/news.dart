@@ -3,6 +3,10 @@ import 'dart:async';
 
 import 'package:http/http.dart' as http;
 import 'package:newsapi/newsapi.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+
+
+
 class News{
   List<Article> articles = [];
 
@@ -29,6 +33,9 @@ class News{
     // ArticleResponse
     articles = topHeadlines.articles;
     print(topHeadlines.articles[0].description);
+
+
+    
 
   }
       }

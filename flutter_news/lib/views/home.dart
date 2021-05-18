@@ -6,7 +6,9 @@ import 'package:flutter_news/helper/news.dart';
 import 'package:flutter_news/main.dart';
 
 import 'package:flutter_news/models/category_model.dart';
+import 'package:flutter_news/views/article_view.dart';
 import 'package:newsapi/newsapi.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -86,7 +88,8 @@ class _HomeState extends State<Home> {
                   return BlogTile(
                     title: articles[index].title,
                     imageUrl: articles[index].urlToImage,
-                    desc: articles[index].description
+                    desc: articles[index].description,
+                    url: articles[index].url
                   );
                 },
               ),
@@ -141,33 +144,42 @@ class CategoryTile extends StatelessWidget {
 }
 
 class BlogTile extends StatelessWidget {
-  final String imageUrl, title, desc;
+  final String imageUrl, title, desc, url;
 
-  BlogTile({@required this.imageUrl, @required this.title, @required this.desc});
+  BlogTile({@required this.imageUrl, @required this.title, @required this.desc, @required this.url});
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(top: 20),
-      child: Column(
-        children: <Widget>[
-           ClipRRect(
-                borderRadius: BorderRadius.circular(5),
-                child: Image.network(imageUrl)),
-          
-          Text(title, style: TextStyle(
-            fontSize:20,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          )
-          ),
-          Text(desc, style: TextStyle(
-            fontSize: 14,
-            color: Colors.black54,
-            fontWeight: FontWeight.normal,
-          ),
-          ),
-        ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) => ArticleView(
 
+          )
+        ));
+      },
+      child: Container(
+        padding: EdgeInsets.only(top: 20),
+        child: Column(
+          children: <Widget>[
+             ClipRRect(
+                  borderRadius: BorderRadius.circular(5),
+                  child: Image.network(imageUrl)),
+            
+            Text(title, style: TextStyle(
+              fontSize:20,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            )
+            ),
+            Text(desc, style: TextStyle(
+              fontSize: 14,
+              color: Colors.black54,
+              fontWeight: FontWeight.normal,
+            ),
+            ),
+          ],
+
+        ),
       ),
     );
   }
