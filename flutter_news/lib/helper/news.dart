@@ -41,7 +41,8 @@ class News {
 
   class CategoryNewsClass {
 
-    
+  String category;
+  CategoryNewsClass({this.category});
 
     List<Article> articles = [];
     Future<void> getCategoryNews() async {
@@ -57,7 +58,7 @@ class News {
       var topHeadlines = await newsApi.topHeadlines(
 
     
-      category: categories,
+      category: category,
 //    country: country,
       
       

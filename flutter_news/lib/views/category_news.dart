@@ -43,7 +43,7 @@ class _CategoryNewsState extends State<CategoryNews> {
   }
 
   Future<void> getCategoryNews() async {
-    CategoryNewsClass newsClass = CategoryNewsClass();
+    CategoryNewsClass newsClass = CategoryNewsClass(category: widget.category);
     await newsClass.getCategoryNews();
     articles = newsClass.articles;
     setState(() {
