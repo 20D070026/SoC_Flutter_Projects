@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("FlutterNews"),
+        title: Text("NewsFLASH"),
         centerTitle: true,
         elevation: 0.0,
 
@@ -117,34 +117,37 @@ class CategoryTile extends StatelessWidget {
           )
         ));
       },
-      child: Container(
-        margin: EdgeInsets.only(
-          right: 16
-        ),
-        child: Stack(
-          children: <Widget>[
-            ClipRRect(
-                borderRadius: BorderRadius.circular(5) ,
-                child: Image.network(imageUrl, width: 140, height: 80, fit: BoxFit.cover,)),
-            Container(
-              alignment: Alignment.center,
-              width: 140, height: 80,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5) ,
-                color: Colors.black26
-              ),
-              child: Text(categoryName, style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+      child: Card(
+        child: Container(
+          padding: EdgeInsets.only(
+            right: 4, left: 4, top: 4, bottom: 4
+          ),
+          color: Colors.black,
+          child: Stack(
+            children: <Widget>[
+              ClipRRect(
+                  borderRadius: BorderRadius.circular(5) ,
+                  child: Image.network(imageUrl, width: 140, height: 80, fit: BoxFit.cover,)),
+              Container(
+                alignment: Alignment.center,
+                width: 140, height: 80,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5) ,
+                  color: Colors.black26
+                ),
+                child: Text(categoryName, style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
 
 
 
-              ),
-              ),
-            )
+                ),
+                ),
+              )
 
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -163,28 +166,31 @@ class BlogTile extends StatelessWidget {
           builder: (context) => ArticleView(blogUrl: url)
         ));
       },
-      child: Container(
-        padding: EdgeInsets.only(top: 20),
-        child: Column(
-          children: <Widget>[
-             ClipRRect(
-                  borderRadius: BorderRadius.circular(5),
-                  child: Image.network(imageUrl)),
-            
-            Text(title, style: TextStyle(
-              fontSize:20,
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-            )
-            ),
-            Text(desc, style: TextStyle(
-              fontSize: 14,
-              color: Colors.black54,
-              fontWeight: FontWeight.normal,
-            ),
-            ),
-          ],
+      child: Card(
+        child: Container(
+          padding: EdgeInsets.only(top: 15, bottom: 15, right: 15, left: 15),
+          color: Colors.black12,
+          child: Column(
+            children: <Widget>[
+               ClipRRect(
+                    borderRadius: BorderRadius.circular(5),
+                    child: Image.network(imageUrl)),
+              
+              Text(title, style: TextStyle(
+                fontSize:20,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              )
+              ),
+              Text(desc, style: TextStyle(
+                fontSize: 14,
+                color: Colors.black54,
+                fontWeight: FontWeight.normal,
+              ),
+              ),
+            ],
 
+          ),
         ),
       ),
     );
