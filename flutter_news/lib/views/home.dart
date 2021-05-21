@@ -160,9 +160,7 @@ class BlogTile extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(context, MaterialPageRoute(
-          builder: (context) => ArticleView(
-
-          )
+          builder: (context) => ArticleView(blogUrl: url)
         ));
       },
       child: Container(

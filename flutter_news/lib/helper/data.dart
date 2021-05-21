@@ -11,7 +11,10 @@ import 'package:webview_flutter/webview_flutter.dart';
     CategoryModel(categoryName: 'Health',
         imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7xavd4hnB1v8fiihWJw_TiV8CC_p8u7dxQg&usqp=CAU'),
     CategoryModel(categoryName: 'Science',
-        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR6qrPUoXYj2RLmEU1C-XwQL_pgN6ZfXVsZA&usqp=CAU')
+        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR6qrPUoXYj2RLmEU1C-XwQL_pgN6ZfXVsZA&usqp=CAU'),
+    CategoryModel(categoryName: 'Sports',
+        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbo9wgqRCMbIep8r1ggcxqRzhiZV1I_S_6DQ&usqp=CAU'
+        )
   ];
 return myCategories;
   }
