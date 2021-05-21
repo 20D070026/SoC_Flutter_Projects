@@ -7,6 +7,7 @@ import 'package:flutter_news/main.dart';
 
 import 'package:flutter_news/models/category_model.dart';
 import 'package:flutter_news/views/article_view.dart';
+import 'package:flutter_news/views/category_news.dart';
 import 'package:newsapi/newsapi.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -17,7 +18,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
  List<Article> articles = [];
-  List<CategoryModel> categories = List<CategoryModel>();
+  List<CategoryModel> categories = [];
   
   bool _loading = true;
 
@@ -104,11 +105,18 @@ class _HomeState extends State<Home> {
 
 class CategoryTile extends StatelessWidget {
 
-  final imageUrl, categoryName;
+  final String imageUrl, categoryName;
   CategoryTile({this.imageUrl, this.categoryName});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) => CategoryNews(
+            category: categoryName.toLowerCase(),
+          )
+        ));
+      },
       child: Container(
         margin: EdgeInsets.only(
           right: 16
