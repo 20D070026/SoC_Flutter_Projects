@@ -22,8 +22,8 @@ class News {
     newsApi.apiKey = 'adf6ce258ced48bbb000ad80d8fea116';
 
     var topHeadlines = await newsApi.topHeadlines(
-//    country: country,
-//    category: 'business',
+// country: country,
+   category: 'business',
 //    sources: sources,
 //    q: q,
       language: 'en',
@@ -68,41 +68,7 @@ class News {
       articles = topHeadlines.articles;
       print(topHeadlines.articles[0].description);
 
-      var topHeadlines = await newsApi.topHeadlines(
-
-      category: 'entertainment', 
-//    country: country,
-      
-      
-//    sources: sources,
-//    q: q,
-        language: 'en',
-//    pageSize: pageSize,
-//    page: page,
-      );
-
-      // ArticleResponse
-      articles = topHeadlines.articles;
-      print(topHeadlines.articles[0].description);
-
-
-      var topHeadlines = await newsApi.topHeadlines(
-
-      category: 'science', 
-//    country: country,
-      
-      
-//    sources: sources,
-//    q: q,
-        language: 'en',
-//    pageSize: pageSize,
-//    page: page,
-      );
-
-      // ArticleResponse
-      articles = topHeadlines.articles;
-      print(topHeadlines.articles[0].description);
-    }
+      }
   }
 
 
