@@ -38,6 +38,7 @@ class _CategoryNewsState extends State<CategoryNews> {
   @override
   void initState() {
     getCategoryNews();
+
     super.initState();
   }
 
@@ -51,7 +52,6 @@ class _CategoryNewsState extends State<CategoryNews> {
 
   }
 
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

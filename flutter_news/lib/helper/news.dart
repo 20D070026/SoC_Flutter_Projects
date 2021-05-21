@@ -5,7 +5,8 @@ import 'package:flutter_news/views/category_news.dart';
 import 'package:http/http.dart' as http;
 import 'package:newsapi/newsapi.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-
+import 'package:flutter_news/views/home.dart';
+import 'package:flutter_news/models/category_model.dart';
 
 
 class News {
@@ -23,7 +24,7 @@ class News {
 
     var topHeadlines = await newsApi.topHeadlines(
 // country: country,
-   category: 'business',
+//   category: category,
 //    sources: sources,
 //    q: q,
       language: 'en',
@@ -40,6 +41,8 @@ class News {
 
   class CategoryNewsClass {
 
+    
+
     List<Article> articles = [];
     Future<void> getCategoryNews() async {
       var newsApi = NewsApi(
@@ -53,7 +56,8 @@ class News {
 
       var topHeadlines = await newsApi.topHeadlines(
 
-      category: 'business', 
+    
+      category: categories,
 //    country: country,
       
       
@@ -69,7 +73,12 @@ class News {
       print(topHeadlines.articles[0].description);
 
       }
+
+
   }
+
+
+
 
 
 
