@@ -1,16 +1,10 @@
 # trial_project_quotes
 
-A new Flutter application.
+This was a sort of an individual mini project, also a part of the tutorial on the following link:
+https://www.youtube.com/playlist?list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ
+This was just a part of the learning phase, nothing major as such.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## About the App
+We can read some nice quotes here.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
