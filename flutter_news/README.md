@@ -1,16 +1,11 @@
 # flutter_news
+This was our second individual project, which we made using the video following link as reference:
+https://www.youtube.com/watch?v=aaGcER1uUoE
 
-A new Flutter application.
+In this project, we delved deeper into app development, and got to know more about the various widgets and applications of Flutter.
 
-## Getting Started
+## About the App
 
-This project is a starting point for a Flutter application.
+In this app, we can see global news on the first screen. Various categories like business, entertainment, health, science, sports, technology etc are available, and on choosing one of these categories, we can view the global news related to these specific categories.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+To fetch the news, we used an API called NewsAPI to send requests.
