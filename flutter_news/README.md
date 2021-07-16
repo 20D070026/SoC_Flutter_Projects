@@ -1,5 +1,6 @@
 # flutter_news
 This was our second individual project, which we made using the video following link as reference:
+
 https://www.youtube.com/watch?v=aaGcER1uUoE
 
 In this project, we delved deeper into app development, and got to know more about the various widgets and applications of Flutter.
