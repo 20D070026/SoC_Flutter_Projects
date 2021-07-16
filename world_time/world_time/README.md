@@ -1,16 +1,11 @@
 # world_time
 
-A new Flutter project.
+This had been our first project, a tutorial-cum-project actually, since it had been a part of a tutorial, whose link is attached below:
+https://www.youtube.com/playlist?list=PL4cUxeGkcC9jLYyp2Aoh6hcWuxFDX6PBJ
 
-## Getting Started
+In this tutorial, we learnt about the basics of Flutter. We explored various different widgets, functionalities and how to write the code to create a UI and develop the app with the necessary functions, complete with the proper aesthetics. And after writing the code, the next process which came was debugging it (quite a tedious job, to be honest :P), and then we ran the app at first on a virtual emulator, and then our actual Android device.
 
-This project is a starting point for a Flutter application.
+## About the App
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The app allows you to choose a location (given in a catalogue), and then shows the current time at that location. 
+To develop this app, we had to take help of an API, called World Time API, from where we accessed the data (by sending requests) to the different time zones all over the world.
